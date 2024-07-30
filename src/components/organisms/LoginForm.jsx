@@ -20,7 +20,7 @@ const LoginForm = () => {
         console.log(email, password)
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/usersJWT/login', {
+            const response = await axios.post('https://jessyapi.integrador.xyz/usersJWT/login', {
                 email,
                 password
             });
@@ -30,7 +30,7 @@ const LoginForm = () => {
             // Guarda el token en localStorage o en el contexto de la aplicación
             localStorage.setItem('token', response.data.token);
             const token = localStorage.getItem('token');
-            const response2 = await axios.get('http://localhost:3000/usersJWT/role', {
+            const response2 = await axios.get('https://jessyapi.integrador.xyz/usersJWT/role', {
                 headers: {
                   Authorization: `Bearer ${token}`
                 }
@@ -90,7 +90,7 @@ const LoginForm = () => {
                     <p className="auth-link" style={{ color: 'black' }}>
                         ¿No tienes una cuenta? <Link to="/register" className="link">Regístrate aquí</Link>
                     </p>
-                    Ver: 0.0.2
+                    Ver: 0.0.3
                 </form>
             </FormContainer>
         </div>

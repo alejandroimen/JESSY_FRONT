@@ -21,7 +21,7 @@ function SearchCategoriesProduct() {
             console.log('Fetch de productos iniciado');
             console.log('ID de categoría:', id_Categorias);
             try {
-                const response = await axios.get(`http://localhost:3000/categorias/${id_Categorias}`, {
+                const response = await axios.get(`https://jessyapi.integrador.xyz/categorias/${id_Categorias}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

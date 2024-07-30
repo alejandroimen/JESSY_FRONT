@@ -19,7 +19,7 @@ function SalesHistory({ toggleCategoriesMenu }) {
         console.log('Esta entrando');
         const fecha = getDate();
 
-        const response = await axios.post(`http://localhost:3000/ventas/ML/`, {
+        const response = await axios.post(`https://jessyapi.integrador.xyz/ventas/ML/`, {
           to: fecha
         }, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -47,7 +47,7 @@ function SalesHistory({ toggleCategoriesMenu }) {
 
   const fetchSales = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/ventas/', {
+      const response = await axios.get('https://jessyapi.integrador.xyz/ventas/', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

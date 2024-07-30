@@ -14,7 +14,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
           setLoading(false);
           return;
         }
-        const response = await axios.get('http://localhost:3000/usersJWT/role', {
+        const response = await axios.get('https://jessyapi.integrador.xyz/usersJWT/role', {
           headers: {
             Authorization: `Bearer ${token}`
           }

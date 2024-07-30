@@ -27,7 +27,7 @@ const RegisterForm = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/usersJWT/', {
+            const response = await axios.post('https://jessyapi.integrador.xyz/usersJWT/', {
                 usuario,
                 email,
                 password,
