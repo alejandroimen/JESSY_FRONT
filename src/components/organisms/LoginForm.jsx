@@ -90,7 +90,7 @@ const LoginForm = () => {
                     <p className="auth-link" style={{ color: 'black' }}>
                         ¿No tienes una cuenta? <Link to="/register" className="link">Regístrate aquí</Link>
                     </p>
-                    Ver: 0.0.3
+                    Ver: 0.0.4
                 </form>
             </FormContainer>
         </div>
