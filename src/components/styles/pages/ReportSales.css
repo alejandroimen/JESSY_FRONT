@@ -1,0 +1,83 @@
+body {
+    font-family: 'Inter';
+    color: #b30000;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+.header-report {
+    background-color: #b30000;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.LogoReport {
+    height: 50px;
+}
+.header-report nav a {
+    color: rgba(255, 255, 255, 0.623);
+    text-decoration: none;
+    font-size: 2.0em;
+    margin-right: 20px;
+    letter-spacing: 1px;
+}
+
+.report-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.report-content {
+    padding: 20px;
+}
+
+h1 {
+    margin: 0.5em 0;
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px;
+    font-size: 1.5em;
+}
+
+h2 {
+    margin: 0.5em 0;
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px;
+    font-size: 2.5em;
+}
+
+.paragrah1 {
+    text-align: left;
+    font-family: 'Inter';
+    font-weight: 700;
+    margin: auto 10%;
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px;
+}
+
+.paragrah2 {
+    text-align: left;
+    font-family: 'Inter';
+    font-weight: 700;
+    margin: auto 10%;
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px;
+}
+
+.charts-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2em 0;
+}
+
+
+.FooterReport {
+    height: 4rem;
+}
