@@ -26,7 +26,7 @@ function ManageCategories({ toggleCategoriesMenu }) {
 
     const fetchCategories = async () => {
         try {
-            const response = await axios.get('api.jzautomotiz.com/categorias', {
+            const response = await axios.get('http://localhost:3000/categorias', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -56,7 +56,7 @@ function ManageCategories({ toggleCategoriesMenu }) {
 
     const handleAddCategory = async () => {
         try {
-            await axios.post('api.jzautomotiz.com/categorias/', newCategory, {
+            await axios.post('http://localhost:3000/categorias/', newCategory, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -70,7 +70,7 @@ function ManageCategories({ toggleCategoriesMenu }) {
 
     const handleEditCategory = async () => {
         try {
-            await axios.put(`api.jzautomotiz.com/categorias/${editCategory.id_Categorias}`, editCategory, {
+            await axios.put(`http://localhost:3000/categorias/${editCategory.id_Categorias}`, editCategory, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

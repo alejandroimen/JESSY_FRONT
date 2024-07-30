@@ -38,7 +38,7 @@ const ReportSales = () => {
     try {
       console.log('Esta entrando al try');
 
-      const response = await axios.post(`api.jzautomotiz.com/ventas/between/`, {
+      const response = await axios.post(`http://localhost:3000/ventas/between/`, {
         old: getDateMinus(3).format('YYYY-M-DD'),
         med: getDateMinus(2).format('YYYY-M-DD'),
         last: getDateMinus(1).format('YYYY-M-DD')

@@ -29,7 +29,7 @@ const ManageSuppliers = () => {
     const fetchSuppliers = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('api.jzautomotiz.com/proveedores/', {
+            const response = await axios.get('http://localhost:3000/proveedores/', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -47,14 +47,14 @@ const ManageSuppliers = () => {
         try {
             const token = localStorage.getItem('token');
             if (currentSupplier) {
-                await axios.put(`api.jzautomotiz.com/proveedores/${currentSupplier.id_proveedor}`, supplierData, {
+                await axios.put(`http://localhost:3000/proveedores/${currentSupplier.id_proveedor}`, supplierData, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
                 alert('Proveedor actualizado correctamente');
             } else {
-                await axios.post('api.jzautomotiz.com/proveedores/', supplierData, {
+                await axios.post('http://localhost:3000/proveedores/', supplierData, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -71,7 +71,7 @@ const ManageSuppliers = () => {
     const handleDeleteSupplier = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`api.jzautomotiz.com/proveedores/${currentSupplier.id_proveedor}`, {
+            await axios.delete(`http://localhost:3000/proveedores/${currentSupplier.id_proveedor}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

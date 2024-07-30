@@ -20,7 +20,7 @@ const LoginForm = () => {
         console.log(email, password)
         e.preventDefault();
         try {
-            const response = await axios.post('api.jzautomotiz.com/usersJWT/login', {
+            const response = await axios.post('http://localhost:3000/usersJWT/login', {
                 email,
                 password
             });
@@ -30,7 +30,7 @@ const LoginForm = () => {
             // Guarda el token en localStorage o en el contexto de la aplicación
             localStorage.setItem('token', response.data.token);
             const token = localStorage.getItem('token');
-            const response2 = await axios.get('api.jzautomotiz.com/usersJWT/role', {
+            const response2 = await axios.get('http://localhost:3000/usersJWT/role', {
                 headers: {
                   Authorization: `Bearer ${token}`
                 }

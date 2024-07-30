@@ -15,7 +15,7 @@ const ModalCategories = ({ isOpen, onClose, newCategory, setNewCategory, handleA
 
     const fetchCategoriesML = async () => {
         try {
-            const response = await axios.get('api.jzautomotiz.com/categoriasML', {
+            const response = await axios.get('http://localhost:3000/categoriasML', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -45,7 +45,7 @@ const ModalCategories = ({ isOpen, onClose, newCategory, setNewCategory, handleA
     const handleAddCategoryAndRemoveFromML = async () => {
         try {
             await handleAddCategory();
-            await axios.delete(`api.jzautomotiz.com/categoriasML/${selectedCategoryML}`, {
+            await axios.delete(`http://localhost:3000/categoriasML/${selectedCategoryML}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
