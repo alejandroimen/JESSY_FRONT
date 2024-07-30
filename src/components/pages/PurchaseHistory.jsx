@@ -21,14 +21,14 @@ const PurchaseHistory = () => {
   useEffect(() => {
     const fetchProductsAndProviders = async () => {
       try {
-        const productsResponse = await axios.get('http://localhost:3000/products', {
+        const productsResponse = await axios.get('api.jzautomotiz.com/products', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
         });
         setProducts(productsResponse.data);
 
-        const providersResponse = await axios.get('http://localhost:3000/proveedores', {
+        const providersResponse = await axios.get('api.jzautomotiz.com/proveedores', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -41,7 +41,7 @@ const PurchaseHistory = () => {
 
     const fetchPurchases = async () => {
       try {
-        const purchasesResponse = await axios.get('http://localhost:3000/compras', {
+        const purchasesResponse = await axios.get('api.jzautomotiz.com/compras', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -66,7 +66,7 @@ const PurchaseHistory = () => {
 
   const handleAddPurchase = async () => {
     try {
-      await axios.post('http://localhost:3000/compras/', newPurchase, {
+      await axios.post('api.jzautomotiz.com/compras/', newPurchase, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -74,7 +74,7 @@ const PurchaseHistory = () => {
       setNewPurchase({ product: '', provider: '', quantity: '' });
       handleModalPurchaseToggle();
       // Refrescar la lista de compras
-      const purchasesResponse = await axios.get('http://localhost:3000/compras/', {
+      const purchasesResponse = await axios.get('api.jzautomotiz.com/compras/', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

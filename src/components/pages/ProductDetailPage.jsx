@@ -14,7 +14,7 @@ function ProductDetailPage() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/products/${id}`, {
+                const response = await axios.get(`api.jzautomotiz.com/products/${id}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

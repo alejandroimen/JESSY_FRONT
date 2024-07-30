@@ -46,7 +46,7 @@ const ProductManagement = () => {
     const fetchProductos = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:3000/products/', {
+            const response = await axios.get('api.jzautomotiz.com/products/', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': `application/json`
@@ -61,7 +61,7 @@ const ProductManagement = () => {
     const fetchCategories = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:3000/categorias', {
+            const response = await axios.get('api.jzautomotiz.com/categorias', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -75,7 +75,7 @@ const ProductManagement = () => {
     const fetchProviders = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:3000/proveedores', {
+            const response = await axios.get('api.jzautomotiz.com/proveedores', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -96,7 +96,7 @@ const ProductManagement = () => {
         formData.append('file', image);
 
         try {
-            await axios.post('http://localhost:3000/products/', formData, {
+            await axios.post('api.jzautomotiz.com/products/', formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data'
@@ -128,7 +128,7 @@ const ProductManagement = () => {
             const token = localStorage.getItem('token');
             console.log(`Token de autorización: ${token}`); // Agrega este log
             console.log(`Eliminando producto con id_ML: ${currentProduct.id_ML}`);
-            await axios.put(`http://localhost:3000/products/${currentProduct.id_ML}`, {
+            await axios.put(`api.jzautomotiz.com/products/${currentProduct.id_ML}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

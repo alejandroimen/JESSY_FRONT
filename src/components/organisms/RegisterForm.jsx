@@ -27,7 +27,7 @@ const RegisterForm = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/usersJWT/', {
+            const response = await axios.post('api.jzautomotiz.com/usersJWT/', {
                 usuario,
                 email,
                 password,

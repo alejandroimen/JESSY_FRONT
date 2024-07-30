@@ -18,7 +18,7 @@ function ClientPage({ toggleMenu }) {
     useEffect(() => {
         const fetchCategorias = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/categorias', {
+                const response = await axios.get('api.jzautomotiz.com/categorias', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -38,7 +38,7 @@ function ClientPage({ toggleMenu }) {
             const nuevosProductosPorCategoria = {};
             for (const categoria of categorias) {
                 try {
-                    const response = await axios.get(`http://localhost:3000/categorias/${categoria.id_Categorias}`, {
+                    const response = await axios.get(`api.jzautomotiz.com/categorias/${categoria.id_Categorias}`, {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
                         }
