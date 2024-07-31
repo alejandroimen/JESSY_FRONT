@@ -21,7 +21,7 @@ function VentaProducts() {
       console.log('Fetch de productos iniciado');
       console.log('ID de venta:', id_Venta);
       try {
-        const response = await axios.get(`https://jessy.integrador.xyz/ventas/${id_Venta}`, {
+        const response = await axios.get(`https://jessyapi.integrador.xyz/ventas/${id_Venta}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

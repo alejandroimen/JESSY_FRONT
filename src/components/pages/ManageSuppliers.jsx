@@ -29,7 +29,7 @@ const ManageSuppliers = () => {
     const fetchSuppliers = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://jessy.integrador.xyz/proveedores/', {
+            const response = await axios.get('https://jessyapi.integrador.xyz/proveedores/', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -47,14 +47,14 @@ const ManageSuppliers = () => {
         try {
             const token = localStorage.getItem('token');
             if (currentSupplier) {
-                await axios.put(`https://jessy.integrador.xyz/proveedores/${currentSupplier.id_proveedor}`, supplierData, {
+                await axios.put(`https://jessyapi.integrador.xyz/proveedores/${currentSupplier.id_proveedor}`, supplierData, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
                 alert('Proveedor actualizado correctamente');
             } else {
-                await axios.post('https://jessy.integrador.xyz/proveedores/', supplierData, {
+                await axios.post('https://jessyapi.integrador.xyz/proveedores/', supplierData, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -71,7 +71,7 @@ const ManageSuppliers = () => {
     const handleDeleteSupplier = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`https://jessy.integrador.xyz/proveedores/${currentSupplier.id_proveedor}`, {
+            await axios.delete(`https://jessyapi.integrador.xyz/proveedores/${currentSupplier.id_proveedor}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

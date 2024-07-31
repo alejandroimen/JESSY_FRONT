@@ -26,7 +26,7 @@ function ManageCategories({ toggleCategoriesMenu }) {
 
     const fetchCategories = async () => {
         try {
-            const response = await axios.get('https://jessy.integrador.xyz/categorias', {
+            const response = await axios.get('https://jessyapi.integrador.xyz/categorias', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -56,7 +56,7 @@ function ManageCategories({ toggleCategoriesMenu }) {
 
     const handleAddCategory = async () => {
         try {
-            await axios.post('https://jessy.integrador.xyz/categorias/', newCategory, {
+            await axios.post('https://jessyapi.integrador.xyz/categorias/', newCategory, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -70,7 +70,7 @@ function ManageCategories({ toggleCategoriesMenu }) {
 
     const handleEditCategory = async () => {
         try {
-            await axios.put(`https://jessy.integrador.xyz/categorias/${editCategory.id_Categorias}`, editCategory, {
+            await axios.put(`https://jessyapi.integrador.xyz/categorias/${editCategory.id_Categorias}`, editCategory, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

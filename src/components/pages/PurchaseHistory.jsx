@@ -21,14 +21,14 @@ const PurchaseHistory = () => {
   useEffect(() => {
     const fetchProductsAndProviders = async () => {
       try {
-        const productsResponse = await axios.get('https://jessy.integrador.xyz/products/', {
+        const productsResponse = await axios.get('https://jessyapi.integrador.xyz/products/', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
         });
         setProducts(productsResponse.data);
 
-        const providersResponse = await axios.get('https://jessy.integrador.xyz/proveedores/', {
+        const providersResponse = await axios.get('https://jessyapi.integrador.xyz/proveedores/', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -41,7 +41,7 @@ const PurchaseHistory = () => {
 
     const fetchPurchases = async () => {
       try {
-        const purchasesResponse = await axios.get('https://jessy.integrador.xyz/compras/', {
+        const purchasesResponse = await axios.get('https://jessyapi.integrador.xyz/compras/', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -81,7 +81,7 @@ const PurchaseHistory = () => {
         fechaCompra: new Date().toISOString().split('T')[0] // Formato YYYY-MM-DD
       };
 
-      await axios.post('https://jessy.integrador.xyz/compras/', purchaseData, {
+      await axios.post('https://jessyapi.integrador.xyz/compras/', purchaseData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -91,7 +91,7 @@ const PurchaseHistory = () => {
       handleModalPurchaseToggle();
 
       // Refrescar la lista de compras
-      const purchasesResponse = await axios.get('https://jessy.integrador.xyz/compras/', {
+      const purchasesResponse = await axios.get('https://jessyapi.integrador.xyz/compras/', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

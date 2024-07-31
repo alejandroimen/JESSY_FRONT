@@ -15,7 +15,7 @@ const ModalCategories = ({ isOpen, onClose, newCategory, setNewCategory, handleA
 
     const fetchCategoriesML = async () => {
         try {
-            const response = await axios.get('https://jessy.integrador.xyz/categoriasML', {
+            const response = await axios.get('https://jessyapi.integrador.xyz/categoriasML', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -45,7 +45,7 @@ const ModalCategories = ({ isOpen, onClose, newCategory, setNewCategory, handleA
     const handleAddCategoryAndRemoveFromML = async () => {
         try {
             await handleAddCategory();
-            await axios.delete(`https://jessy.integrador.xyz/categoriasML/${selectedCategoryML}`, {
+            await axios.delete(`https://jessyapi.integrador.xyz/categoriasML/${selectedCategoryML}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

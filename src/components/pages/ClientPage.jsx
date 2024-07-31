@@ -18,7 +18,7 @@ function ClientPage({ toggleMenu }) {
     useEffect(() => {
         const fetchCategorias = async () => {
             try {
-                const response = await axios.get('https://jessy.integrador.xyz/categorias', {
+                const response = await axios.get('https://jessyapi.integrador.xyz/categorias', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -38,7 +38,7 @@ function ClientPage({ toggleMenu }) {
             const nuevosProductosPorCategoria = {};
             for (const categoria of categorias) {
                 try {
-                    const response = await axios.get(`https://jessy.integrador.xyz/categorias/${categoria.id_Categorias}`, {
+                    const response = await axios.get(`https://jessyapi.integrador.xyz/categorias/${categoria.id_Categorias}`, {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
                         }

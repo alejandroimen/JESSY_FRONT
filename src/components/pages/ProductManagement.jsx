@@ -42,7 +42,7 @@ const ProductManagement = () => {
     const fetchProductos = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://jessy.integrador.xyz/products/', {
+            const response = await axios.get('https://jessyapi.integrador.xyz/products/', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': `application/json`
@@ -57,7 +57,7 @@ const ProductManagement = () => {
     const fetchCategories = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://jessy.integrador.xyz/categorias', {
+            const response = await axios.get('https://jessyapi.integrador.xyz/categorias', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -71,7 +71,7 @@ const ProductManagement = () => {
     const fetchProviders = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://jessy.integrador.xyz/proveedores', {
+            const response = await axios.get('https://jessyapi.integrador.xyz/proveedores', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -92,7 +92,7 @@ const ProductManagement = () => {
         formData.append('file', image);
 
         try {
-            await axios.post('https://jessy.integrador.xyz/products/', formData, {
+            await axios.post('https://jessyapi.integrador.xyz/products/', formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data'
@@ -124,7 +124,7 @@ const ProductManagement = () => {
             const token = localStorage.getItem('token');
             console.log(`Token de autorización: ${token}`); // Agrega este log
             console.log(`Eliminando producto con id_ML: ${currentProduct.id_ML}`);
-            await axios.delete(`https://jessy.integrador.xyz/products/${currentProduct.id_ML}`, {
+            await axios.delete(`https://jessyapi.integrador.xyz/products/${currentProduct.id_ML}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -152,7 +152,7 @@ const ProductManagement = () => {
         console.log('este es la imagen', image);
     
         try {
-            await axios.put(`https://jessy.integrador.xyz/products/${currentProduct.id_ML}`, formData, {
+            await axios.put(`https://jessyapi.integrador.xyz/products/${currentProduct.id_ML}`, formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data',
