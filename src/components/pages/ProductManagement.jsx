@@ -1,16 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
 import Logo from '../atoms/Logo';
 import ModalProductManagement from '../molecules/ModalProductManagement';
 import ModalEditProductManagement from '../molecules/ModalEditProductManagement';
 import ModalDeleteProductManagement from '../molecules/ModalDeleteProductManagement';
 import ModalFiltroProductos from '../organisms/ModalFiltroProductos';
-import ModalLogout from '../molecules/LogoutModal';
 import SidebarMenu from '../molecules/SidebarMenu';
 import axios from 'axios';
 import Button from '../atoms/Button';
 import Input from '../atoms/Input';
 import ImageUpload from '../atoms/ImageUpload';
-import { useNavigate } from 'react-router-dom';
 import '../styles/pages/ProductManagement.css';
 
 const ProductManagement = () => {
@@ -29,9 +28,6 @@ const ProductManagement = () => {
     const [deleteProduct, setDeleteProduct] = useState(false);
     const [editProduct, setEditProduct] = useState(false);
     const [currentProduct, setCurrentProduct] = useState(null);
-    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
-
-    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -46,7 +42,7 @@ const ProductManagement = () => {
     const fetchProductos = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://jessyapi.integrador.xyz/products/', {
+            const response = await axios.get('https://jessy.integrador.xyz/products/', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': `application/json`
@@ -61,7 +57,7 @@ const ProductManagement = () => {
     const fetchCategories = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://jessyapi.integrador.xyz/categorias', {
+            const response = await axios.get('https://jessy.integrador.xyz/categorias', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -75,7 +71,7 @@ const ProductManagement = () => {
     const fetchProviders = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://jessyapi.integrador.xyz/proveedores', {
+            const response = await axios.get('https://jessy.integrador.xyz/proveedores', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -96,7 +92,7 @@ const ProductManagement = () => {
         formData.append('file', image);
 
         try {
-            await axios.post('https://jessyapi.integrador.xyz/products/', formData, {
+            await axios.post('https://jessy.integrador.xyz/products/', formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data'
@@ -110,7 +106,7 @@ const ProductManagement = () => {
     };
 
     const handleImageUpload = (image) => {
-        setImage({ file: image });
+        setImage({file: image});
     };
 
     const handleModalToggle = () => {
@@ -128,7 +124,7 @@ const ProductManagement = () => {
             const token = localStorage.getItem('token');
             console.log(`Token de autorización: ${token}`); // Agrega este log
             console.log(`Eliminando producto con id_ML: ${currentProduct.id_ML}`);
-            await axios.put(`https://jessyapi.integrador.xyz/products/${currentProduct.id_ML}`, {
+            await axios.delete(`https://jessy.integrador.xyz/products/${currentProduct.id_ML}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -143,6 +139,35 @@ const ProductManagement = () => {
         }
     };
 
+    const handleEditProducto = async () => {
+        console.log("si llego");
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('price', price);
+        formData.append('available_quantity', available_quantity);
+        formData.append('description', description);
+        formData.append('category_id', category_id);
+        formData.append('file', image);
+        console.log('este es la id categoria', category_id);
+        console.log('este es la imagen', image);
+    
+        try {
+            await axios.put(`https://jessy.integrador.xyz/products/${currentProduct.id_ML}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                }
+            });
+            fetchProductos();
+            setEditProduct(false);
+        } catch (error) {
+            console.error('Error editing product:', error);
+        }
+    };
+    
+    
+
     const handleEditToggle = () => {
         setEditProduct(!editProduct);
         setCurrentProduct(null);
@@ -153,20 +178,6 @@ const ProductManagement = () => {
         setDescription('');
         setAvailable_quantity('');
         setImage('');
-    };
-
-    const handleLogoutModalToggle = () => {
-        setIsLogoutModalOpen(!isLogoutModalOpen);
-    };
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        navigate('/login'); // Redirige a la página de inicio de sesión
-    };
-
-    const handleChangeAccountToggle = () => {
-        localStorage.removeItem('token');
-        navigate('/login'); // Redirige a la página de inicio de sesión
     };
 
     return (
@@ -187,14 +198,6 @@ const ProductManagement = () => {
                 <div className="navbar-right">
                     <div className="profile-circle">
                         <i className="fas fa-user-circle"></i>
-                        <div className="user-card">
-                            <div className="user-icon">
-                                <i className="fas fa-user-circle icon-log"></i>
-                            </div>
-                            <h3>Username</h3>
-                            <a href="#" className="change-account" onClick={handleChangeAccountToggle}>Cambiar de cuenta</a>
-                            <a href="#" className="logout" onClick={handleLogoutModalToggle}>Cerrar sesión</a>
-                        </div>
                     </div>
                 </div>
             </header>
@@ -218,7 +221,7 @@ const ProductManagement = () => {
                                     <p>{producto.title}</p>
                                     <p>${producto.price}</p>
                                     <p>{producto.available_quantity}</p>
-                                    <p>{producto.provider_name  }</p>
+                                    <p>{producto.provider_name}</p>
                                 </div>
                                 <div className="product-actions">
                                     <button className="add-pencil-btn" onClick={() => {
@@ -270,19 +273,20 @@ const ProductManagement = () => {
             <ModalEditProductManagement
                 isOpen={editProduct}
                 onClose={() => setEditProduct(false)}
+                onEditProduct={handleEditProducto}
                 categories={categories}
-                setAvailable_quantity={available_quantity}
-                available_quantity={setAvailable_quantity}
-                setCategory_id={category_id}
-                category_id={setCategory_id}
-                setPrice={price}
-                price={setPrice}
-                setDescription={description}
-                description={setDescription}
-                setTitle={title}
-                title={setTitle}
-                setImage={image}
-                image={setImage}
+                setAvailable_quantity={setAvailable_quantity}
+                available_quantity={available_quantity}
+                setCategory_id={setCategory_id}
+                category_id={category_id}
+                setPrice={setPrice}
+                price={price}
+                setDescription={setDescription}
+                description={description}
+                setTitle={setTitle}
+                title={title}
+                setImage={setImage}
+                image={image}
                 providers={providers}
                 currentProduct={currentProduct}
                 fetchProductos={fetchProductos}
@@ -291,11 +295,6 @@ const ProductManagement = () => {
                 handleImageUpload={handleImageUpload}
                 fetchCategories={fetchCategories}
                 fetchProviders={fetchProviders}
-            />
-            <ModalLogout 
-                isOpen={isLogoutModalOpen} 
-                onClose={handleLogoutModalToggle} 
-                onLogout={handleLogout} 
             />
         </div>
     );

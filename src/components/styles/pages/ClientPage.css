@@ -5,19 +5,18 @@
     align-items: center;
 }
 
-.custom-logo {
+.custom-logo-client {
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
-.header-logo {
+.header-logo-client {
     width: 135px;
     height: 55px;
     margin: 0;
-}
-
-.navbar {
+} 
+.navbar-c {
     display: flex;
     align-items: center;
     background-color: #b30000;
@@ -32,17 +31,18 @@
     justify-content: space-between;
 }
 
-.navbar-left,
-.navbar-center,
-.navbar-right {
+.navbar-left-c,
+.navbar-center-c,
+.navbar-right-c {
     display: flex;
     align-items: center;
 }
 
-.navbar-left {
+.navbar-left-c {
+    width: 100%;
     flex: 1;
 }
-.navbar-right {
+.navbar-right-c {
     flex: 1;
     justify-content: flex-end;
 }
@@ -74,8 +74,4 @@
     font-size: 50px;
     cursor: pointer;
     margin-right: 80px;
-}
-
-.profile-circle i {
-    font-size: inherit;
 }

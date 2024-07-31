@@ -55,7 +55,7 @@
     width: 100%;
     max-width: 800px; /* Ajustar el ancho máximo */
     padding: 1rem 0;
-    margin: 2rem auto 0 auto; /* Centrar el contenedor y añadir margen superior */
+    margin: 4rem auto 0 auto; /* Centrar el contenedor y añadir margen superior */
 }
 
 .header-actions h2 {

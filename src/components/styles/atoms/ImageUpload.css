@@ -1,0 +1,55 @@
+.image-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-preview-container {
+    position: relative;
+    width: 175px;
+    height: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .remove-image-button {
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    background-color: transparent;
+    color: red;
+    border: none;
+    font-size: 3.5rem;
+    cursor: pointer;
+  }
+  
+  .add-image-button {
+    background-color: transparent;
+    border: 2px dashed #f91d1d;
+    color: #ccc;
+    font-size: 2rem;
+    width: 175px;
+    height: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .add-image-button:hover {
+    border-color: #aaa;
+    color: #aaa;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  

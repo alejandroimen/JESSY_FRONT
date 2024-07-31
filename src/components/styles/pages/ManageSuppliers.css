@@ -124,7 +124,7 @@
     margin-right: 10px;
 }
 
-.product-list-container {
+.product-list-container-suppliers {
     max-height: 400px;
     width: 750px;  
     box-sizing: border-box;
@@ -139,14 +139,15 @@
     gap: 20px;
 }
 
-.product-item {
+.product-item-suppliers {
     display: flex;
     align-items: center;
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width:100%;
+    width:100%;
+    box-sizing: border-box;
 }
 
 .product-icon {
@@ -163,9 +164,10 @@
     width: 50%;
 }
 
-.product-actions {
+.product-actions-suppliers {
     display: flex;
     gap: 10px;
+    margin-left: 10px;
 }
 
 .edit-btn {
@@ -184,21 +186,21 @@
     margin-right: 10px;
 }
 
-.delete-btn {
+.delete-btn-suppliers {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 18px;
 }
 
-.add-pencil-btn {
+.add-pencil-btn-suppliers {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 18px;
 }
 
-.product-details p {
+.product-details-suppliers p {
     margin-right: 20px;
     font-weight: 500;
     font-size: 20px;

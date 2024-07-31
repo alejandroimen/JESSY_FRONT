@@ -51,10 +51,7 @@ const ModalProductManagement = ({ isOpen, onClose, title, price, categories, ava
                         <div className="modal-product-management-upper">
                             <div className="modal-product-management-image-upload">
                                 <div className="modal-product-management-image-placeholder">
-                                    <i className="fas fa-plus"> 
                                         <ImageUpload onUpload={handleImageUpload} />
-                                    </i>
-
                                 </div>
                             </div>
                             <div className="modal-product-management-form-fields">

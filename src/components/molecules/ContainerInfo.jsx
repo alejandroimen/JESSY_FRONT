@@ -1,10 +1,23 @@
 import React from "react";
 import "../styles/molecules/ContainerInfo.css";
+import Logo from "../atoms/Logo";
 import { FaRegBookmark } from "react-icons/fa6";
 
 function ContainerInfo({ product }) {
     return (
         <div className="container-info-and-buttons">
+            <header className="navbar-c">
+                <div className="navbar-left-c">
+                    <div className="header-logo-client">
+                        <Logo className="custom-logo-client" />
+                    </div>
+                </div>
+                <div className="navbar-right-c">
+                    <div className="profile-circle">
+                        <i className="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </header>
             <div className="container-buttons">
                 <button className="btn-icon">
                     <FaRegBookmark />

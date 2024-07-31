@@ -14,7 +14,7 @@ function ProductDetailPage() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://jessyapi.integrador.xyz/products/${id}`, {
+                const response = await axios.get(`https://jessy.integrador.xyz/products/${id}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

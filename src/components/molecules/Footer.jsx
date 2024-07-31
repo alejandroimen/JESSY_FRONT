@@ -3,7 +3,7 @@ import "../styles/molecules/Footer.css"
 
 function Footer(){
     return (
-        <footer className="footer">
+        <footer className="footer-client">
             <div>
                 <h2>Contáctanos</h2>
                 <ul>

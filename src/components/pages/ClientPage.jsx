@@ -18,7 +18,7 @@ function ClientPage({ toggleMenu }) {
     useEffect(() => {
         const fetchCategorias = async () => {
             try {
-                const response = await axios.get('https://jessyapi.integrador.xyz/categorias', {
+                const response = await axios.get('https://jessy.integrador.xyz/categorias', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -38,7 +38,7 @@ function ClientPage({ toggleMenu }) {
             const nuevosProductosPorCategoria = {};
             for (const categoria of categorias) {
                 try {
-                    const response = await axios.get(`https://jessyapi.integrador.xyz/categorias/${categoria.id_Categorias}`, {
+                    const response = await axios.get(`https://jessy.integrador.xyz/categorias/${categoria.id_Categorias}`, {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
                         }
@@ -64,8 +64,8 @@ function ClientPage({ toggleMenu }) {
         <div className="page-body">
             <header className="navbar">
                 <div className="navbar-left">
-                    <div className="header-logo">
-                        <Logo className="custom-logo" />
+                    <div className="header-logo-client">
+                        <Logo className="custom-logo-client" />
                     </div>
                 </div>
                 <ModalFiltroProductos />

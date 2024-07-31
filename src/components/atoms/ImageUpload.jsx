@@ -14,13 +14,13 @@ const ImageUpload = ({ onUpload }) => {
       setError('Formato de imagen no válido. Elige JPG, JPEG o PNG.');
       return;
     }
-    onUpload(file)
+    onUpload(file);
 
     const reader = new FileReader();
     reader.onloadend = () => {
       setImage(reader.result);
     };
-    reader.onerror = (error) => {
+    reader.onerror = () => {
       setError('Error al leer la imagen.'); // Handle read error
     };
     reader.readAsDataURL(file);
@@ -33,18 +33,29 @@ const ImageUpload = ({ onUpload }) => {
 
   return (
     <div className="image-upload">
-      <input name='image' type="file" onChange={handleImageChange} />
-      {error && <p className="error-message">{error}</p>}  {/* Display error message */}
-      {image && (
+      {image ? (
         <div className="image-preview-container">
           <img src={image} alt="Upload Preview" className="image-preview" />
           <button className="remove-image-button" onClick={handleRemoveImage}>
-            Eliminar
+            &times;
           </button>
         </div>
+      ) : (
+        <>
+          <input
+            id="file-input"
+            type="file"
+            onChange={handleImageChange}
+            style={{ display: 'none' }}
+          />
+          <label htmlFor="file-input" className="add-image-button">
+          <i className="fas fa-plus"></i>
+          </label>
+        </>
       )}
+      {error && <p className="error-message">{error}</p>}  {/* Display error message */}
     </div>
   );
 };
 
-export default ImageUpload;
+export default ImageUpload;
