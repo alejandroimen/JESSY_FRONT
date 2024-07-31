@@ -5,7 +5,7 @@ import moment from 'moment';
 import Logo from '../atoms/Logo';
 import axios from 'axios';
 import SidebarMenu from '../molecules/SidebarMenu';
-import '../styles/pages/SalesHistory.css'; 
+import '../styles/pages/SalesHistory.css';
 
 function SalesHistory({ toggleCategoriesMenu }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,14 +78,7 @@ function SalesHistory({ toggleCategoriesMenu }) {
     <div className="sales-history">
       <header className="navbar">
         <div className="navbar-left">
-          <>
-            <SidebarMenu isOpen={isOpen} toggleMenu={toggleMenu} />
-            {!isOpen && (
-              <button className="menu-btn" onClick={toggleMenu}>
-                <i className="fas fa-bars"></i>
-              </button>
-            )}
-          </>
+          <SidebarMenu isOpen={isOpen} toggleMenu={toggleMenu} />
           <div className="header-line">
             <Logo className="logo-sales-history" />
           </div>
@@ -96,11 +89,6 @@ function SalesHistory({ toggleCategoriesMenu }) {
           </div>
         </div>
       </header>
-      <div className="arrow-button-container">
-        <Link to="/sales-history">
-          <i className="fa-solid fa-arrow-rotate-left"></i>
-        </Link>
-      </div>
       <div className="content">
         <div className="actions">
           <div className="left-actions">

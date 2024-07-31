@@ -5,7 +5,8 @@ import axios from 'axios';
 import Logo from "../atoms/Logo";
 import ContainerCards from "../organisms/ContainerCards";
 import Slider from "../organisms/Slider";
-import ModalFiltroProductos from "../organisms/ModalFiltroProductos";
+import SidebarMenu from '../molecules/SidebarMenu';
+import ModalFiltroProductos from "../molecules/ModalFiltroProductos";
 import Footer from "../molecules/Footer";
 import "../styles/pages/ClientPage.css"
 
@@ -63,12 +64,13 @@ function ClientPage({ toggleMenu }) {
     return (
         <div className="page-body">
             <header className="navbar">
+                <SidebarMenu />
                 <div className="navbar-left">
                     <div className="header-logo-client">
                         <Logo className="custom-logo-client" />
                     </div>
                 </div>
-                <ModalFiltroProductos />
+                <ModalFiltroProductos categories={categorias} />
                 <div className="navbar-right">
                     <div className="profile-circle">
                         <i className="fas fa-user-circle"></i>

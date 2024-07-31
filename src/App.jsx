@@ -11,7 +11,6 @@ import './components/styles/organisms/styles.css'
 const App = () => {
     return (
         <div className="app">
-            <SidebarMenu />
             <div className="app-container">
                 <Outlet />
             </div>

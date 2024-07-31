@@ -5,7 +5,6 @@ import Comentarios from "../organisms/Comentarios";
 import "../styles/pages/InformationProduct.css"
 import imagen from "../../assets/sendlier.png"
 import Logo from "../atoms/Logo";
-import ModalFiltroProductos from "../organisms/ModalFiltroProductos";
 
 const comments = [
     {

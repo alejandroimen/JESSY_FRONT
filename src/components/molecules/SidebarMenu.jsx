@@ -3,16 +3,24 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Logo from '../atoms/Logo';
 import '../styles/molecules/SidebarMenu.css'
 
-const SidebarMenu = ({ isOpen, toggleMenu }) => {
+const SidebarMenu = (props) => {
+    if (!props.isOpen) {
+        return (
+            <button className="menu-btn" onClick={props.toggleMenu}>
+                <i className="fas fa-bars"></i>
+            </button>
+        )
+    }
+
     return (
-        <div className={`sidebar-container ${isOpen ? 'open' : ''}`}>
-            <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+        <div className={`sidebar-container ${props.isOpen ? 'open' : ''}`}>
+            <div className={`sidebar ${props.isOpen ? 'open' : ''}`}>
                 <div className="profile-section">
                     <Logo className="logo-sidebar" />
-                    <button className="close-btn" onClick={toggleMenu}>
+                    <button className="close-btn" onClick={props.toggleMenu}>
                         <i className="fas fa-times"></i>
                     </button>
-                </div> 
+                </div>
                 <nav className="menu">
                     <ul>
                         <li><a href="/products">Gestión de productos</a></li>

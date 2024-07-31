@@ -106,14 +106,7 @@ const PurchaseHistory = () => {
     <div className="purchase-history">
       <header className="navbar">
         <div className="navbar-left">
-          <>
-            <SidebarMenu isOpen={isOpen} toggleMenu={toggleMenu} />
-            {!isOpen && (
-              <button className="menu-btn" onClick={toggleMenu}>
-                <i className="fas fa-bars"></i>
-              </button>
-            )}
-          </>
+          <SidebarMenu isOpen={isOpen} toggleMenu={toggleMenu} />
           <div className="header-line">
             <Logo className="custom-logo" />
           </div>
@@ -132,13 +125,13 @@ const PurchaseHistory = () => {
       </div>
       <div className="purchase-list">
         {purchases.map((purchase, index) => (
-          <PurchaseItem 
-            key={index} 
-            product={purchase.title} 
-            provider={purchase.nombre} 
-            price={purchase.invertido} 
-            quantity={purchase.cantidad_Productos} 
-            date={purchase.fechaCompra} 
+          <PurchaseItem
+            key={index}
+            product={purchase.title}
+            provider={purchase.nombre}
+            price={purchase.invertido}
+            quantity={purchase.cantidad_Productos}
+            date={purchase.fechaCompra}
           />
         ))}
       </div>

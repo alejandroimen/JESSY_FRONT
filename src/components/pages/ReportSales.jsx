@@ -9,6 +9,7 @@ import CustomBarChart from '../organisms/BarChart';
 import CustomLineChart from '../organisms/LineChart';
 import CustomPieChart from '../organisms/PieChart';
 import Table from '../molecules/Table';
+import ButtonReturn from '../atoms/ButtonReturn';
 import Footer from '../atoms/Footer';
 import '../styles/pages/ReportSales.css';
 import moment from 'moment';
@@ -118,6 +119,7 @@ const ReportSales = () => {
           <Link to="/reportsales" className="report-link">REPORTE</Link>
         </nav>
       </header>
+      <ButtonReturn to={'saleshistory'} />
       <div className="download-icon" onClick={handleDownload}>
         <FaDownload className="download-icon" />
       </div>

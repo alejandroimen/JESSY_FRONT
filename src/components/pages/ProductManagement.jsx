@@ -4,18 +4,16 @@ import Logo from '../atoms/Logo';
 import ModalProductManagement from '../molecules/ModalProductManagement';
 import ModalEditProductManagement from '../molecules/ModalEditProductManagement';
 import ModalDeleteProductManagement from '../molecules/ModalDeleteProductManagement';
-import ModalFiltroProductos from '../organisms/ModalFiltroProductos';
+import ModalFiltroProductos from '../molecules/ModalFiltroProductos';
 import SidebarMenu from '../molecules/SidebarMenu';
 import axios from 'axios';
-import Button from '../atoms/Button';
-import Input from '../atoms/Input';
-import ImageUpload from '../atoms/ImageUpload';
 import '../styles/pages/ProductManagement.css';
 
 const ProductManagement = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [productos, setProductos] = useState([]);
+    const [productosFiltered, setProductosFiltered] = useState([]);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
@@ -49,6 +47,7 @@ const ProductManagement = () => {
                 }
             });
             setProductos(response.data);
+            setProductosFiltered(response.data)
         } catch (error) {
             console.error('Error fetching products:', error);
         }
@@ -62,6 +61,7 @@ const ProductManagement = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
+            console.log('Cats', response.data)
             setCategories(response.data);
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -165,8 +165,6 @@ const ProductManagement = () => {
             console.error('Error editing product:', error);
         }
     };
-    
-    
 
     const handleEditToggle = () => {
         setEditProduct(!editProduct);
@@ -180,21 +178,50 @@ const ProductManagement = () => {
         setImage('');
     };
 
+    const productsRendered = productosFiltered.map(producto => (
+        <div className="product-item" key={producto.id}>
+            <button className="edit-btn">
+                <div className="red-square"></div>
+            </button>
+            <div className="product-details">
+                <p className='title'>{producto.title}</p>
+                <p className='price'>${producto.price}</p>
+                <p>{producto.available_quantity}</p>
+                <p>{producto.provider_name}</p>
+            </div>
+            <div className="product-actions">
+                <button className="add-pencil-btn" onClick={() => {
+                    setCurrentProduct(producto);
+                    setAvailable_quantity(producto.available_quantity);
+                    setCategory_id(producto.category_id);
+                    setPrice(producto.price);
+                    setDescription(producto.description);
+                    setTitle(producto.title);
+                    setImage(producto.image);
+                    setEditProduct(true);
+                }}>
+                    <i className="fa-solid fa-pencil"></i>
+                </button>
+                <button className="delete-btn" onClick={() => {
+                    setCurrentProduct(producto);
+                    setDeleteProduct(true);
+                }}>
+                    <i className="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    ))
+
     return (
         <div className="product-management">
             <header className="navbar">
                 <div className="navbar-left">
                     <SidebarMenu isOpen={isOpen} toggleMenu={toggleMenu} />
-                    {!isOpen && (
-                        <button className="menu-btn" onClick={toggleMenu}>
-                            <i className="fas fa-bars"></i>
-                        </button>
-                    )}
                     <div className="header-line">
                         <Logo className="custom-logo" />
                     </div>
                 </div>
-                <ModalFiltroProductos categories={categories} />
+                <ModalFiltroProductos productosComplete = {productos} productosFiltered = {productosFiltered} setProductosFiltered = {setProductosFiltered} categories={categories} />
                 <div className="navbar-right">
                     <div className="profile-circle">
                         <i className="fas fa-user-circle"></i>
@@ -212,39 +239,7 @@ const ProductManagement = () => {
                 </div>
                 <div className="product-list-container">
                     <div className="product-list">
-                        {productos.map(producto => (
-                            <div className="product-item" key={producto.id}>
-                                <button className="edit-btn">
-                                    <div className="red-square"></div>
-                                </button>
-                                <div className="product-details">
-                                    <p>{producto.title}</p>
-                                    <p>${producto.price}</p>
-                                    <p>{producto.available_quantity}</p>
-                                    <p>{producto.provider_name}</p>
-                                </div>
-                                <div className="product-actions">
-                                    <button className="add-pencil-btn" onClick={() => {
-                                        setCurrentProduct(producto);
-                                        setAvailable_quantity(producto.available_quantity);
-                                        setCategory_id(producto.category_id);
-                                        setPrice(producto.price);
-                                        setDescription(producto.description);
-                                        setTitle(producto.title);
-                                        setImage(producto.image);
-                                        setEditProduct(true);
-                                    }}>
-                                        <i className="fa-solid fa-pencil"></i>
-                                    </button>
-                                    <button className="delete-btn" onClick={() => {
-                                        setCurrentProduct(producto);
-                                        setDeleteProduct(true);
-                                    }}>
-                                        <i className="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
+                        {productsRendered}
                     </div>
                 </div>
             </div>

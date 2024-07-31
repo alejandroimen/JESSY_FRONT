@@ -1,0 +1,15 @@
+.arrow-button-container {
+    position: absolute;
+    top: 40px;
+    left: 30px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.arrow {
+    font-size: 35px;
+    cursor: pointer;
+    color: #b30000;
+}

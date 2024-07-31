@@ -18,6 +18,8 @@
     justify-content: start;
 }
 .footer-client div h2 {
+    font-size: 25px;
+    font-weight: 500;
     margin: 35px 0px 20px 0px;
 }
 .footer-client div ul {
@@ -31,8 +33,23 @@
 }
 
 .footer-client div ul li {
+    width: 100%;
     margin: 0px 0px 15px 0px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: start ;
+    gap: 10px;
 }
 .footer-client div ul li a {
     text-decoration: none;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 20px;
 }
