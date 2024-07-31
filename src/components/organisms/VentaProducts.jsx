@@ -62,14 +62,7 @@ function VentaProducts() {
     <div className="category-management-search">
       <header className="navbar-search">
         <div className="navbar-left-search">
-          <>
-            <SidebarMenu isOpen={isOpen} toggleMenu={toggleMenu} />
-            {!isOpen && (
-              <button className="menu-btn" onClick={toggleMenu}>
-                <i className="fas fa-bars"></i>
-              </button>
-            )}
-          </>
+          <SidebarMenu isOpen={isOpen} toggleMenu={toggleMenu} />
           <div className="header-line">
             <Logo className="custom-logo" />
           </div>

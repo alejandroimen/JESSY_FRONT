@@ -127,7 +127,8 @@
 }
 
 .actions-categories-search h1{
-    margin-left: 280px;
+    width: 100%;
+    text-align: center;
 }
 
 .category-details p {
