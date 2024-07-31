@@ -1,4 +1,3 @@
-// PurchaseHistory.jsx
 import React, { useState, useEffect } from 'react';
 import SidebarMenu from '../molecules/SidebarMenu';
 import Logo from '../atoms/Logo';
