@@ -7,7 +7,9 @@ const ModalEditProductManagement = ({ isOpen, onClose, categories, providers, se
     const [categoryOpen, setCategoryOpen] = useState(false);
     const [providerOpen, setProviderOpen] = useState(false);
 
-    const toggleCategory = () => setCategoryOpen(!categoryOpen);
+    const toggleCategory = () => {
+        setCategoryOpen(!categoryOpen)
+    };
     const toggleProvider = () => setProviderOpen(!providerOpen);
 
     const handleSubmit = (e) => {

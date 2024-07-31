@@ -1,0 +1,48 @@
+.profile-circle {
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    margin-right: 80px;
+    position: relative;
+  }
+  
+  .profile-circle i {
+    font-size: inherit;
+  }
+  
+  .user-card {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 10px;
+    text-align: center;
+    height: 200px;
+    width: 180px;
+    z-index: 10;
+  }
+  
+  .profile-circle:hover .user-card {
+    display: block;
+  }
+  
+  .user-icon {
+    background-color: #ffcccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin-left: 50px;
+  }
+  
+  .user-icon i {
+    color: white;
+    font-size: 40px;
+    margin-top: 7px;
+    margin-left: 2px;
+  }

@@ -62,22 +62,6 @@
     margin-right: 20px;
 }
 
-.search-bar {
-    padding: 5px;
-    border: none;
-    border-radius: 15px;
-    width: 730px;
-    height: 35px;
-}
-
-.search-bar::placeholder {
-    color: #000000ea;
-    font-family: 'Inter';
-    font-size: 20px;
-    opacity: 1;
-    letter-spacing: 5px;
-    padding-left: 5px;
-}
 
 .profile-circle-search {
     color: white;

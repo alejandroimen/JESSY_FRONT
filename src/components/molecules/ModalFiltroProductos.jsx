@@ -105,7 +105,8 @@ function ModalFiltroProductos(props) {
           <Button label='Aplicar' className='btn-apply-fitler' onClick={handleApplyChangesByPrice}/>
         </div>
       </div>
-      <input type="text" placeholder="Buscar" className="search-bar" />
+      <input type="text" placeholder="Buscar" className="search-bar-own
+-own" />
     </div>
   )
 }

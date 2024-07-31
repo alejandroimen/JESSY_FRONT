@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Logo from '../atoms/Logo';
 import SidebarMenu from '../molecules/SidebarMenu';
+import UserProfile from '../molecules/UserProfile';
 import '../styles/organisms/VentaProducts.css';
 
 function VentaProducts() {
@@ -42,7 +43,7 @@ function VentaProducts() {
   if (error) return <p>{error}</p>;
 
   const productsRendered = productos.length === 0 ? (
-    <p>Algo salió mal :/</p>
+    <p>No hay productos :/</p>
   ) : (
     <div className="product-list-search">
       {productos.map((producto) => (

@@ -6,10 +6,12 @@ import ModalEditProductManagement from '../molecules/ModalEditProductManagement'
 import ModalDeleteProductManagement from '../molecules/ModalDeleteProductManagement';
 import ModalFiltroProductos from '../molecules/ModalFiltroProductos';
 import SidebarMenu from '../molecules/SidebarMenu';
+import UserProfile from '../molecules/UserProfile';
 import axios from 'axios';
 import '../styles/pages/ProductManagement.css';
 
 const ProductManagement = () => {
+    const [isOpenUser, setIsOpenUser] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [productos, setProductos] = useState([]);
@@ -61,7 +63,7 @@ const ProductManagement = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log('Cats', response.data)
+            console.log('CATS', response.data)
             setCategories(response.data);
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -212,6 +214,15 @@ const ProductManagement = () => {
         </div>
     ))
 
+    const handleModalToggleEdit = ()=> {
+        setEditProduct(false)
+        setCategory_id('')
+        setTitle('')
+        setDescription('')
+        setAvailable_quantity(0)
+        setPrice(0)
+    }
+
     return (
         <div className="product-management">
             <header className="navbar">
@@ -223,9 +234,7 @@ const ProductManagement = () => {
                 </div>
                 <ModalFiltroProductos productosComplete = {productos} productosFiltered = {productosFiltered} setProductosFiltered = {setProductosFiltered} categories={categories} />
                 <div className="navbar-right">
-                    <div className="profile-circle">
-                        <i className="fas fa-user-circle"></i>
-                    </div>
+                    <UserProfile isOpenUser = {isOpenUser} setIsOpenUser = {setIsOpenUser} />
                 </div>
             </header>
             <div className="content-products-management">
@@ -267,7 +276,7 @@ const ProductManagement = () => {
             />
             <ModalEditProductManagement
                 isOpen={editProduct}
-                onClose={() => setEditProduct(false)}
+                onClose={handleModalToggleEdit}
                 onEditProduct={handleEditProducto}
                 categories={categories}
                 setAvailable_quantity={setAvailable_quantity}
